@@ -1,10 +1,14 @@
 import React from 'react';
 import PokemonCard from './PokemonCard';
 
-const PokemonList = () => {
+const PokemonList = ({ pokemons, handleButtonClick }) => {
   return (
     <div>
-      <PokemonCard />
+      { pokemons.map((pokemon) => (
+        <PokemonCard key={ pokemon.id } pokemon={ pokemon }/>
+      )) }
+      {/* <PokemonCard pokemon={ pokemons[0] } /> */}
+      <button onClick={ handleButtonClick }>Pess</button>
     </div>
   )
 }
