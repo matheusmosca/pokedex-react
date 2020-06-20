@@ -12,7 +12,7 @@ const PokemonList = ({ pokemons, handleButtonClick }) => {
       <div className="button-container">
         <button onClick={ handleButtonClick }>Load more pokémon</button>
       </div>
-    </>
+    </>        
   )
 }
 

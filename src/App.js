@@ -6,17 +6,18 @@ import axios from 'axios';
 
 import './styles/styles.css'
 import './styles/types.css'
+import Footer from './Components/Footer';
 
 function App() {
   // pokemon = { id: number, name: str, types: [str, str], image: imgURL }
   const [pokemons, setPokemons] = useState([]);
   const [offset, setOffset] = useState(0);
-  const nextPage = 30;
+  const nextPage = 24;
 
   async function fetchPokemons() {
     const response = await axios({
       method: 'GET',
-      url: `https://pokeapi.co/api/v2/pokemon/?limit=30&offset=${offset}`,
+      url: `https://pokeapi.co/api/v2/pokemon/?limit=24&offset=${offset}`,
     })
     const data = await response.data;
     const pokemonsURL = await data.results
@@ -52,7 +53,10 @@ function App() {
   return (
     <>
       <Header />
-      { pokemons.length > 0 && <PokemonList handleButtonClick={ fetchPokemons } pokemons={ pokemons }/> }
+      <main>
+        { pokemons.length > 0 && <PokemonList handleButtonClick={ fetchPokemons } pokemons={ pokemons }/> }
+      </main>
+      <Footer />
     </>
   );
 }
