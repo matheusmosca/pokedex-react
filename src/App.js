@@ -4,7 +4,8 @@ import PokemonList from './Components/PokemonList';
 import { useEffect } from 'react';
 import axios from 'axios';
 
-import './styles.css'
+import './styles/styles.css'
+import './styles/types.css'
 
 function App() {
   // pokemon = { id: number, name: str, types: [str, str], image: imgURL }
@@ -49,10 +50,10 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <Header />
       { pokemons.length > 0 && <PokemonList handleButtonClick={ fetchPokemons } pokemons={ pokemons }/> }
-    </div>
+    </>
   );
 }
 export default App;
